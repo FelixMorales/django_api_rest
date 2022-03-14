@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'scrumboard',
     'accounts',
+    'auth_api',
 ]
 
 MIDDLEWARE = [

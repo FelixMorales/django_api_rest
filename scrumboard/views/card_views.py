@@ -4,6 +4,11 @@ from rest_framework import status
 from rest_framework import serializers
 from rest_framework.views import APIView
 from rest_framework.pagination import PageNumberPagination
+from django.utils.decorators import method_decorator
+from django.views.decorators.csrf import csrf_protect
+
+from rest_framework.permissions import IsAuthenticated
+from permissions import ReadOnly
 
 from scrumboard.models import Card, List
 
@@ -15,6 +20,7 @@ class ListOutputSerializer(serializers.ModelSerializer):
         fields = ('id', 'name') 
 
 class Cards(APIView):
+    permission_classes = [IsAuthenticated|ReadOnly]
     class OutputSerializer(serializers.ModelSerializer):
         class Meta:
             model = Card
@@ -33,6 +39,7 @@ class Cards(APIView):
         except Exception as error:
             return Response(str(error), status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
+    @method_decorator(csrf_protect)
     def post(self, request: Request):
         try:
             serializer = self.InputSerializer(data=request.data)
@@ -46,7 +53,8 @@ class Cards(APIView):
             return Response(str(error), status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 class CardsPaged(APIView):
-
+    permission_classes = [IsAuthenticated]
+    
     class OutputSerializer(serializers.ModelSerializer):
         list = ListOutputSerializer()
 
