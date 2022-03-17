@@ -83,7 +83,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'api_rest',
-        'HOST': 'winhost',
+        'HOST': 'localhost',
         'USER': 'postgres',
         'PASSWORD': 'djrex747',
         'PORT': '5432',
