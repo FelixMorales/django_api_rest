@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'scrumboard',
     'accounts',
     'auth_api',
+    'file_extractor',
 ]
 
 MIDDLEWARE = [

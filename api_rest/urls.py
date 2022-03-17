@@ -22,4 +22,5 @@ urlpatterns = [
     path('__debug__/', include('debug_toolbar.urls')),
     path('scrumboard/', include('scrumboard.urls')),
     path('auth/', include('auth_api.urls')),
+    path('files/', include('file_extractor.urls')),
 ]
