@@ -35,6 +35,6 @@ def get_file_text(file: InMemoryUploadedFile):
     return text
 
 def extract_entities(text: str):
-    NER = spacy.load('en_core_web_sm')
+    NER = spacy.load('en_core_web_md')
     ner_text = NER(text)
     return ner_text.ents
