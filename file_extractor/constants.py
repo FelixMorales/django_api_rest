@@ -18,3 +18,5 @@ NER_ENTITIES_TAGS = {
     'TIME' : 17,
     'WORK_OF_ART' : 18,
 }   
+
+NER_MODEL_NAME = 'en_core_web_md'

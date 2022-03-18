@@ -1,12 +1,12 @@
-from file_extractor.constants import NER_ENTITIES_TAGS
-from file_extractor.models import Document, NEREntity, NEREntityTag
 from django.core.files.uploadedfile import InMemoryUploadedFile
 import fitz
-import spacy
+
 
 import file_extractor.services.aws_service
 import file_extractor.services.document_service
 import file_extractor.services.ner_entity_service
+from file_extractor.types.ner_model import NERModel
+
 
 def parse_file(file: InMemoryUploadedFile):
     text = get_file_text(file)
@@ -35,6 +35,6 @@ def get_file_text(file: InMemoryUploadedFile):
     return text
 
 def extract_entities(text: str):
-    NER = spacy.load('en_core_web_md')
-    ner_text = NER(text)
+    ner = NERModel()
+    ner_text = ner.model(text)
     return ner_text.ents
