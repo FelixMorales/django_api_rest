@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'debug_toolbar',
     'rest_framework',
-    'scrumboard',
     'accounts',
     'auth_api',
     'file_extractor',
