@@ -3,3 +3,4 @@ django-debug-toolbar==3.2.4
 djangorestframework==3.13.1
 psycopg2==2.9.3
 pymupdf==1.19.6
+spacy==3.2.3
